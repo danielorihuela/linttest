@@ -1,6 +1,9 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   commitlint:
@@ -12,12 +15,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: Print versions
-        run: |
-          git --version
-          node --version
-          npm --version
-          npx commitlint --version
       - name: Install commitlint
         run: |
           npm install conventional-changelog-conventionalcommits
