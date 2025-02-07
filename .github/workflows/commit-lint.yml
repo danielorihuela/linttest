@@ -28,6 +28,6 @@ jobs:
           echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
       - name: print config 
         run: |
-          cat commitling.config.js
+          cat commitlint.config.js
       - name: Validate pr title
         run: echo ${{ github.event.pull_request.title }} | npx commitlint
