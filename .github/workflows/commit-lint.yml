@@ -24,8 +24,10 @@ jobs:
           npm i @commitlint/cli
           npm i @commitlint/config-conventional
       - name: Add config
-        run: echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+        run: |
+          echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
       - name: print config 
-        run: cat commitling.config.js
+        run: |
+          cat commitling.config.js
       - name: Validate pr title
         run: echo ${{ github.event.pull_request.title }} | npx commitlint
